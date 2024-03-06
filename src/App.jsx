@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Counter } from './components/Counter.jsx'
 
 const user = {
   name: 'ume boshi',
@@ -20,15 +21,6 @@ export default function App() {
   );
 }
 
-
-function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      Clicked me {count} times
-    </button>
-  );
-}
 
 function AboutPage() {
   const [isOpen, setIsOpen] = useState(false)

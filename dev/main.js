@@ -1084,7 +1084,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState2(initialState) {
+          function useState3(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1886,7 +1886,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState2;
+          exports.useState = useState3;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -24376,10 +24376,10 @@
             }
           }
           var jsx3 = jsxWithValidationDynamic;
-          var jsxs2 = jsxWithValidationStatic;
+          var jsxs3 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
           exports.jsx = jsx3;
-          exports.jsxs = jsxs2;
+          exports.jsxs = jsxs3;
         })();
       }
     }
@@ -24398,69 +24398,82 @@
   });
 
   // src/main.jsx
-  var import_react3 = __toESM(require_react(), 1);
+  var import_react4 = __toESM(require_react(), 1);
   var import_client = __toESM(require_client(), 1);
 
   // src/App.jsx
-  var import_react = __toESM(require_react(), 1);
   var import_react2 = __toESM(require_react(), 1);
+  var import_react3 = __toESM(require_react(), 1);
+
+  // src/components/Counter.jsx
+  var import_react = __toESM(require_react(), 1);
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  function Counter() {
+    const [count, setCount] = (0, import_react.useState)(0);
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+      "button",
+      {
+        onClick: () => setCount(count + 1),
+        className: "counter",
+        children: [
+          "Clicked me ",
+          count,
+          " times"
+        ]
+      }
+    );
+  }
+
+  // src/App.jsx
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
   var user = {
     name: "ume boshi",
     message: "hukuzatukaiki"
   };
   function App() {
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "app-title", children: "Hello client render" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "main main main main main" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Counter, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Profile, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AboutPage, {})
-    ] });
-  }
-  function Counter() {
-    const [count, setCount] = (0, import_react2.useState)(0);
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { onClick: () => setCount(count + 1), children: [
-      "Clicked me ",
-      count,
-      " times"
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", { className: "app-title", children: "Hello client render" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("p", { children: "main main main main main" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Counter, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Profile, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(AboutPage, {})
     ] });
   }
   function AboutPage() {
-    const [isOpen, setIsOpen] = (0, import_react2.useState)(false);
+    const [isOpen, setIsOpen] = (0, import_react3.useState)(false);
     function handleClick() {
       setIsOpen(!isOpen);
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: handleClick, children: "open" }),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { children: "About" })
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { onClick: handleClick, children: "open" }),
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", { children: "About" })
     ] });
   }
   function Profile() {
     let content;
     if (isLoggedIn) {
-      content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UserPage, {});
+      content = /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(UserPage, {});
     } else {
-      content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LoginPage, {});
+      content = /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(LoginPage, {});
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { style: { color: "red" }, children: user.name }),
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h1", { style: { color: "red" }, children: user.name }),
       content
     ] });
   }
   var isLoggedIn = true;
   function UserPage() {
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: user.name }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: user.message })
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("ul", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("li", { children: user.name }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("li", { children: user.message })
     ] });
   }
 
   // src/main.jsx
-  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   var root = (0, import_client.createRoot)(document.getElementById("root"));
   root.render(
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_jsx_runtime2.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(App, {}) })
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_jsx_runtime3.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(App, {}) })
   );
 })();
 /*! Bundled license information:

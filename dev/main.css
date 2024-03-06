@@ -1,4 +1,12 @@
+/* src/components/counter.css */
+.counter {
+  font-size: 2em;
+}
+
 /* src/style.css */
 h1 {
   color: red;
+}
+.app-title {
+  color: blue;
 }
